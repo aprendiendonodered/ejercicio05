@@ -2,7 +2,10 @@
     "name": "EJERCICIO05",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-email": "1.8.2",
+        "node-red-node-twitter": "1.1.7"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
