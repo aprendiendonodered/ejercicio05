@@ -22,6 +22,7 @@
         "id": "8cc4ef54.4ac0b",
         "type": "twitter out",
         "z": "f64c1629.160888",
+        "d": true,
         "twitter": "5fe544b4.18b66c",
         "name": "Tweet",
         "x": 590,
@@ -75,7 +76,7 @@
         "z": "f64c1629.160888",
         "name": "",
         "url": "/mail",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
@@ -256,7 +257,7 @@
         "type": "http request",
         "z": "e65338d6.4182d8",
         "name": "",
-        "method": "GET",
+        "method": "POST",
         "ret": "txt",
         "paytoqs": "query",
         "url": "https://enriquecrespo.com:18802/mail",
@@ -285,12 +286,12 @@
             },
             {
                 "p": "payload.asunto",
-                "v": "Prueba con POST",
+                "v": "Prueba con POST para mandar a twitter",
                 "vt": "str"
             },
             {
                 "p": "payload.contenido",
-                "v": "Mando contenido a Node-RED",
+                "v": "Mando contenido a Node-RED y lo reenvio a twitter",
                 "vt": "str"
             }
         ],
@@ -303,7 +304,8 @@
         "y": 120,
         "wires": [
             [
-                "be3b01aa.f3bf7"
+                "be3b01aa.f3bf7",
+                "574bb098.68e48"
             ]
         ]
     },
@@ -337,6 +339,22 @@
         "statusType": "auto",
         "x": 620,
         "y": 180,
+        "wires": []
+    },
+    {
+        "id": "574bb098.68e48",
+        "type": "debug",
+        "z": "e65338d6.4182d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 200,
         "wires": []
     }
 ]
