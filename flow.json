@@ -7,6 +7,13 @@
         "info": ""
     },
     {
+        "id": "e65338d6.4182d8",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "5fe544b4.18b66c",
         "type": "twitter-credentials",
         "screen_name": "jecrespom"
@@ -17,8 +24,8 @@
         "z": "f64c1629.160888",
         "twitter": "5fe544b4.18b66c",
         "name": "Tweet",
-        "x": 630,
-        "y": 140,
+        "x": 590,
+        "y": 120,
         "wires": []
     },
     {
@@ -36,8 +43,8 @@
         "repeat": "30",
         "fetch": "auto",
         "inputs": 0,
-        "x": 150,
-        "y": 140,
+        "x": 110,
+        "y": 120,
         "wires": [
             [
                 "9f7ea676.a11e68",
@@ -58,8 +65,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
-        "y": 260,
+        "x": 450,
+        "y": 240,
         "wires": []
     },
     {
@@ -87,8 +94,8 @@
         "z": "f64c1629.160888",
         "name": "Si llega un email con el subject twitter, tuiteo el contenido del email",
         "info": "",
-        "x": 330,
-        "y": 80,
+        "x": 290,
+        "y": 60,
         "wires": []
     },
     {
@@ -114,7 +121,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
+        "x": 590,
         "y": 340,
         "wires": []
     },
@@ -210,12 +217,12 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 460,
-        "y": 140,
+        "x": 420,
+        "y": 120,
         "wires": [
             [
                 "8cc4ef54.4ac0b",
-                "9f7ea676.a11e68"
+                "8076f755.e7e858"
             ]
         ]
     },
@@ -236,12 +243,100 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 300,
-        "y": 140,
+        "x": 270,
+        "y": 120,
         "wires": [
             [
                 "d7a4eca4.e56d9"
             ]
         ]
+    },
+    {
+        "id": "be3b01aa.f3bf7",
+        "type": "http request",
+        "z": "e65338d6.4182d8",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "https://enriquecrespo.com:18802/mail",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "basic",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "1df1e961.4b0cf7"
+            ]
+        ]
+    },
+    {
+        "id": "ef12d1d7.5ba3b",
+        "type": "inject",
+        "z": "e65338d6.4182d8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.destinatario",
+                "v": "aprendiendoraspberrypi@gmail.com",
+                "vt": "str"
+            },
+            {
+                "p": "payload.asunto",
+                "v": "Prueba con POST",
+                "vt": "str"
+            },
+            {
+                "p": "payload.contenido",
+                "v": "Mando contenido a Node-RED",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "be3b01aa.f3bf7"
+            ]
+        ]
+    },
+    {
+        "id": "1df1e961.4b0cf7",
+        "type": "debug",
+        "z": "e65338d6.4182d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8076f755.e7e858",
+        "type": "debug",
+        "z": "f64c1629.160888",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 180,
+        "wires": []
     }
 ]
